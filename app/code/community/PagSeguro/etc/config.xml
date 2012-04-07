@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Guilherme Dutra
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL).
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   Payment Gateway
+ * @package    PagSeguro
+ * @copyright  Copyright (c) 2008 WebLibre [http://www.weblibre.com.br]  - Guilherme Dutra [ godutra@gmail.com ]
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <PagSeguro>
+            <version>1.0.4</version>
+        </PagSeguro>
+    </modules>
+    <global>
+        <models>
+            <pagseguro>
+                <class>PagSeguro_Model</class>
+            </pagseguro>        
+            <!--pagseguro>
+                <class>PagSeguro_Model</class>
+                <resourceModel>pagseguro_mysql4</resourceModel>
+            </pagseguro>
+            <pagseguro_mysql4>
+                <class>PagSeguro_Model_Mysql4</class>
+                <entities>
+                    <api_debug><table>pagseguro_api_debug</table></api_debug>
+                </entities>
+            </pagseguro_mysql4>
+			<pagseguro_mysql4>
+                <class>PagSeguro_Model_Mysql4</class>
+                <entities>
+                    <pagseguro_return><table>pagseguro</table></pagseguro_return>
+                </entities>
+            </pagseguro_mysql4-->
+        </models>
+        <resources>
+            <pagseguro_setup>
+                <setup>
+                    <module>PagSeguro</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </pagseguro_setup>
+            <pagseguro_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </pagseguro_write>
+            <pagseguro_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </pagseguro_read>
+        </resources>
+        <blocks>
+            <pagseguro><class>PagSeguro_Block</class></pagseguro>
+        </blocks>
+    </global>
+    <frontend>      
+        <routers>
+            <pagseguro>
+                <use>standard</use>
+                <args>
+                    <module>PagSeguro</module>
+                    <frontName>PagSeguro</frontName>
+                </args>
+            </pagseguro>
+        </routers>
+        <translate>
+            <modules>
+                <pagseguro>
+                    <files>
+                        <default>pagseguro.csv</default>
+                    </files>
+                </pagseguro>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <pagseguro>
+                    <file>pagseguro.xml</file>
+                </pagseguro>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <pagseguro>
+                    <files>
+                        <default>pagseguro.csv</default>
+                    </files>
+                </pagseguro>
+            </modules>
+        </translate>        
+    </adminhtml>
+
+    <default>
+         <payment>
+             <pagseguro_standard>
+                  <model>PagSeguro_Model_Standard</model>
+                  <title>PagSeguro Standard</title>
+                  <allowspecific>0</allowspecific>                  
+            </pagseguro_standard>
+        </payment>
+        <carriers>
+           <pagseguro>
+              <active>1</active>
+              <sallowspecific>0</sallowspecific>
+              <model>PagSeguro_Model_Carrier_ShippingMethod</model>
+              <name>PagSeguro</name>
+              <title>PagSeguro</title>
+              <handling_type>F</handling_type>
+           </pagseguro>
+        </carriers>
+    </default>
+</config>

@@ -1,0 +1,26 @@
+Módulo PagSeguro Versão 1.0.8
+
+Instalação do módulo PagSeguro para Magento
+
+=== Pré-requisitos ===
+
+- Magento nas versões 1.3.x – 1.4.x – 1.5.x
+
+=== Instalação ===
+
+Visite: http://visie.com.br/pagseguro/plataforma/magento/
+
+=== Change log ===
+v1.0.8
+26/05/2011
+Atualização no cálculo de frete
+ - Corrigindo bug de quando o usuário desabilita o cálculo de frete do 
+pagseguro para usar de terceiros
+
+
+v 1.0.7
+18/05/2011
+Retorno automático
+- Corrigindo o retorno automático para atualizar o status do pedido,
+com o retorno do PagSeguro quando a transação for completa ou aprovada.
+
